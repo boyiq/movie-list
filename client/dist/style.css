@@ -1,3 +1,44 @@
 body {
   font-family: sans-serif, arial;
 }
+
+#movielist {
+  margin: auto;
+  font-family: cursive;
+  font-size: xx-large;
+  background-color: gray;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.singlemovie {
+  margin:auto;
+  text-align: center;
+  height: 30px;
+  width: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: gray;
+  padding-top: 20px;
+  padding-bottom:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+}
+
+#searchsection {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 40px;
+  width:50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+#searchbar {
+  margin:auto;
+  text-align: left;
+}
+
