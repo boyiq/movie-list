@@ -12,7 +12,11 @@ body {
   width: 100%;
 }
 
-.singlemovie {
+.singlemoviesection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin:auto;
   text-align: center;
   height: 30px;
@@ -26,7 +30,36 @@ body {
   margin-bottom:3px;
 }
 
-#searchsection {
+.singlemovie {
+  margin-left: 15px;
+  text-align: center;
+}
+
+.watched {
+  margin-right:25px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-style: solid;
+  border-color: #4CAF50;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+}
+
+.towatch {
+  margin-right:25px;
+  background-color: white;
+  color: #4CAF50;
+  text-align: center;
+  display: inline-block;
+  border-style: solid;
+  border-color: #4CAF50;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+}
+
+.formsection {
   display: flex;
   justify-content: center;
   margin: auto;
@@ -34,11 +67,33 @@ body {
   width:50%;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
-#searchbar {
+.inputbar {
   margin:auto;
   text-align: left;
+  height:30px
+}
+
+.clickbutton {
+  height:36px;
+  margin: atuo;
+}
+
+.filtersection {
+  width: 50%;
+  margin: auto;
+}
+
+.filter {
+  background-color: white;
+  border-style: solid;
+  border-color: #4CAF50;
+  color:black;
+  margin:0;
+}
+
+#leftfilter {
+  border-right: none;
 }
 
