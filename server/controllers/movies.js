@@ -13,8 +13,8 @@ module.exports = {
   post: function(req, res) {
     //console.log('request body is' , req.body)
     models.movies.create(req.body)
-    .then(()=> {
-      res.status(201).json('movie successfully added')
+    .then((result)=> {
+      res.status(201).json(result)
     }).catch(()=>(
       res.sendStatus(400)
     ))
@@ -30,10 +30,10 @@ module.exports = {
   },
 
   put: function(req, res) {
-    console.log('put request body is', req.body)
-    models.movies.update(req.body)
-    .then(()=> {
-      res.status(201).json('movie is now watched')
+    models.movies.updateAndRetrieve(req.body)
+    .then((updatedMovie)=> {
+      //console.log('after updating the returned result is ', result[0].dataValues)
+      res.status(201).json(updatedMovie)
     }).catch(()=> (
       res.sendStatus(400)
     ))

@@ -24,17 +24,28 @@ const App = (props) => {
 
 
   function getTargetMovies (target) {
-    console.log('looking for ', target);
+    //console.log('looking for ', target);
     setsearchContent(target);
   }
 
   function addMovie (newmovie) {
     let newMovieObj = {title: newmovie, watched: 0}
     axios.post(`${API_URL}/movies`, newMovieObj)
-    .then()
-    .then(()=>{
-      setallmoviesList([...allmoviesList, newMovieObj]);
+    .then((result)=>{
+      //console.log('the added movie is ', result.data)
+      setallmoviesList([...allmoviesList, result.data[0]]);
     })
+  }
+
+  function changeWatchStatus (movieindex) {
+    let copy = [...allmoviesList];
+    let selectedMovie = copy[movieindex];
+    axios.put(`${API_URL}/movies`, selectedMovie)
+    .then((result)=>{
+      console.log('updated movie recevied is', result.data);
+      copy[movieindex] = result.data[0];
+      setallmoviesList(copy);
+    });
   }
 
   function changeToWatched (movieindex) {

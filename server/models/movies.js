@@ -10,13 +10,22 @@ module.exports = {
     return db.movies.create({
       title: movieObj.title,
       watched: movieObj.watched
-    })
+    }).then(()=>(
+      db.movies.findAll(
+        {where: {title: movieObj.title}}
+      )
+    ))
   },
 
-  update: function(movieObj) {
+  updateAndRetrieve: function(movieObj) {
     return db.movies.update(
-      {watched: Math.abs(movieObj.watched - 1)}, {where: {title: movieObj.title}}
-    )
+      { watched: Math.abs(movieObj.watched - 1)},
+      { where: {title: movieObj.title}}
+    ).then(()=>(
+      db.movies.findAll(
+        {where: {title: movieObj.title}}
+      )
+    ))
   }
 }
 
