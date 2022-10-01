@@ -37,5 +37,14 @@ module.exports = {
     }).catch(()=> (
       res.sendStatus(400)
     ))
+  },
+
+  delete: function(req, res) {
+    models.movies.delete(req.body)
+    .then(() => {
+      res.status(200).json('movie deleted')
+    }).catch(()=> (
+      res.sendStatus(400)
+    ))
   }
 }

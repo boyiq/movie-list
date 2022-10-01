@@ -26,6 +26,12 @@ module.exports = {
         {where: {title: movieObj.title}}
       )
     ))
+  },
+
+  delete: function(movieToDeleteObj) {
+    return db.movies.destroy(
+      {where: {title: movieToDeleteObj.title}}
+    )
   }
 }
 
