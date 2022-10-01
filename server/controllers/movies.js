@@ -11,19 +11,13 @@ const moviedata = [
 
 module.exports = {
   post: function(req, res) {
-    console.log('request body is' , req.body)
+    //console.log('request body is' , req.body)
     models.movies.create(req.body)
     .then(()=> {
       res.status(201).json('movie successfully added')
     }).catch(()=>(
       res.sendStatus(400)
     ))
-    //.then(()=> (
-    //  res.sendStatus(201).json('hellow world')
-    //  //console.log('movie added, now movielist is' , moviedata);
-    //)).catch(()=> (
-    //  res.sendStatus(400)
-    //))
   },
 
   get: function(req, res) {
@@ -33,5 +27,15 @@ module.exports = {
     }).catch(()=> {
       res.sendStatus(400)
     })
+  },
+
+  put: function(req, res) {
+    console.log('put request body is', req.body)
+    models.movies.update(req.body)
+    .then(()=> {
+      res.status(201).json('movie is now watched')
+    }).catch(()=> (
+      res.sendStatus(400)
+    ))
   }
 }

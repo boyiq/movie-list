@@ -11,6 +11,12 @@ module.exports = {
       title: movieObj.title,
       watched: movieObj.watched
     })
+  },
+
+  update: function(movieObj) {
+    return db.movies.update(
+      {watched: Math.abs(movieObj.watched - 1)}, {where: {title: movieObj.title}}
+    )
   }
 }
 
