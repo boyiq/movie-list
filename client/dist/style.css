@@ -59,6 +59,18 @@ body {
   padding: 5px 10px 5px 10px;
 }
 
+.delete {
+  margin-right:25px;
+  background-color: white;
+  color: darkred;
+  text-align: center;
+  display: inline-block;
+  border-style: solid;
+  border-color: darkred;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+}
+
 .formsection {
   display: flex;
   justify-content: center;
