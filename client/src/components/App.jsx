@@ -11,13 +11,7 @@ const axios = require('axios');
 
 //---------APP component--------//
 const App = (props) => {
-  //const moviedata = [
-  //  {title: 'Mean Girls'},
-  //  {title: 'Hackers'},
-  //  {title: 'The Grey'},
-  //  {title: 'Sunshine'},
-  //  {title: 'Ex Machina'},
-  //];
+
   const [filterStatus, setfilterStatus] = useState("All");
   const [searchContent, setsearchContent] = useState('');
   const [allmoviesList, setallmoviesList] = useState([]);
@@ -35,18 +29,23 @@ const App = (props) => {
   }
 
   function addMovie (newmovie) {
-    setallmoviesList([...allmoviesList, {title: newmovie, watched: false}]);
+    let newMovieObj = {title: newmovie, watched: 0}
+    axios.post(`${API_URL}/movies`, newMovieObj)
+    .then()
+    .then(()=>{
+      setallmoviesList([...allmoviesList, newMovieObj]);
+    })
   }
 
   function changeToWatched (movieindex) {
      let copy = [...allmoviesList];
-     copy[movieindex].watched = true;
+     copy[movieindex].watched = 1;
      setallmoviesList(copy);
   }
 
   function changeToToWatch (movieindex) {
     let copy = [...allmoviesList];
-    copy[movieindex].watched = false;
+    copy[movieindex].watched = 0;
     setallmoviesList(copy);
   }
 

@@ -9,7 +9,7 @@ const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, 
     return (
       <div>
         {collection.map((item, index) => {
-          if (item.watched === true && item.title.includes(searchContent)) {
+          if (item.watched && item.title.includes(searchContent)) {
             return (
               <SingleMovie movie = {item} movieindex={index} changeToToWatch={changeToToWatch} changeToWatched={changeToWatched}/>
             )
@@ -21,7 +21,7 @@ const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, 
     return (
       <div>
         {collection.map((item, index) => {
-          if (item.watched === false && item.title.includes(searchContent)) {
+          if (!item.watched && item.title.includes(searchContent)) {
             return (
             <SingleMovie movie = {item} movieindex={index} changeToToWatch={changeToToWatch} changeToWatched={changeToWatched}/>
             )
