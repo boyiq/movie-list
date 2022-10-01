@@ -1,7 +1,7 @@
 import React from 'react';
 const{ useState } = React;
 
-const SingleMovie = ({movie, movieindex, changeWatchStatus}) => {
+const SingleMovie = ({movie, movieindex, changeWatchStatus, deleteMovie}) => {
 
   return (
   <div class="singlemoviesection">
@@ -14,6 +14,10 @@ const SingleMovie = ({movie, movieindex, changeWatchStatus}) => {
       }
 
     }}>{movie.watched? "Watched" : "To Watch"}</button>
+    <button onClick={(event) => {
+      console.log('after clicking, the movieindex is', movieindex)
+      deleteMovie(movieindex);
+    }}>delete</button>
   </div>
   )
 }

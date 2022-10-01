@@ -46,6 +46,18 @@ const App = (props) => {
     });
   }
 
+  function deleteMovie (movieindex) {
+    let copy = [...allmoviesList];
+    let selectedMovie = copy[movieindex];
+    console.log('the selected movie in app.js is ', selectedMovie)
+    axios.delete(`${API_URL}/movies`, {data: selectedMovie})
+    .then(() => {
+      copy.splice(movieindex, 1);
+      setallmoviesList(copy);
+    })
+
+  }
+
   //function changeToWatched (movieindex) {
   //   let copy = [...allmoviesList];
   //   copy[movieindex].watched = 1;
@@ -68,7 +80,7 @@ const App = (props) => {
       <Add handleSubmit = {addMovie}/>
       <Search handleSubmit = {getTargetMovies} allmoviesList = {allmoviesList}/>
       <Filter filterStatus={filterStatus} allmoviesList={allmoviesList} changeFilterStatus={changeFilterStatus}/>
-      <MovieList collection = {allmoviesList} changeWatchStatus = {changeWatchStatus}  filterStatus = {filterStatus} searchContent={searchContent}/>
+      <MovieList collection = {allmoviesList} changeWatchStatus = {changeWatchStatus}  filterStatus = {filterStatus} searchContent={searchContent} deleteMovie={deleteMovie}/>
     </div>
   )
 };

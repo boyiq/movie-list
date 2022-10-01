@@ -40,6 +40,7 @@ module.exports = {
   },
 
   delete: function(req, res) {
+    console.log('the movie to delete is', req.body)
     models.movies.delete(req.body)
     .then(() => {
       res.status(200).json('movie deleted')
