@@ -1,16 +1,16 @@
 import React from 'react';
 const{ useState } = React;
 
-const SingleMovie = ({movie, movieindex, changeToToWatch, changeToWatched}) => {
+const SingleMovie = ({movie, movieindex, changeWatchStatus}) => {
 
   return (
   <div class="singlemoviesection">
     <div class="singlemovie">{movie.title}</div>
     <button class={movie.watched? "watched" : "towatch"} onClick={(event)=>{
       if (!movie.watched) {
-        changeToWatched(movieindex);
+        changeWatchStatus(movieindex);
       } else {
-        changeToToWatch(movieindex)
+        changeWatchStatus(movieindex)
       }
 
     }}>{movie.watched? "Watched" : "To Watch"}</button>

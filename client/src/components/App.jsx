@@ -24,7 +24,6 @@ const App = (props) => {
 
 
   function getTargetMovies (target) {
-    //console.log('looking for ', target);
     setsearchContent(target);
   }
 
@@ -32,7 +31,6 @@ const App = (props) => {
     let newMovieObj = {title: newmovie, watched: 0}
     axios.post(`${API_URL}/movies`, newMovieObj)
     .then((result)=>{
-      //console.log('the added movie is ', result.data)
       setallmoviesList([...allmoviesList, result.data[0]]);
     })
   }
@@ -48,17 +46,17 @@ const App = (props) => {
     });
   }
 
-  function changeToWatched (movieindex) {
-     let copy = [...allmoviesList];
-     copy[movieindex].watched = 1;
-     setallmoviesList(copy);
-  }
-
-  function changeToToWatch (movieindex) {
-    let copy = [...allmoviesList];
-    copy[movieindex].watched = 0;
-    setallmoviesList(copy);
-  }
+  //function changeToWatched (movieindex) {
+  //   let copy = [...allmoviesList];
+  //   copy[movieindex].watched = 1;
+  //   setallmoviesList(copy);
+  //}
+//
+  //function changeToToWatch (movieindex) {
+  //  let copy = [...allmoviesList];
+  //  copy[movieindex].watched = 0;
+  //  setallmoviesList(copy);
+  //}
 
   function changeFilterStatus (status) {
     setfilterStatus(status);
@@ -70,7 +68,7 @@ const App = (props) => {
       <Add handleSubmit = {addMovie}/>
       <Search handleSubmit = {getTargetMovies} allmoviesList = {allmoviesList}/>
       <Filter filterStatus={filterStatus} allmoviesList={allmoviesList} changeFilterStatus={changeFilterStatus}/>
-      <MovieList collection = {allmoviesList} changeToToWatch = {changeToToWatch} changeToWatched = {changeToWatched} filterStatus = {filterStatus} searchContent={searchContent}/>
+      <MovieList collection = {allmoviesList} changeWatchStatus = {changeWatchStatus}  filterStatus = {filterStatus} searchContent={searchContent}/>
     </div>
   )
 };

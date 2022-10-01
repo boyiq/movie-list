@@ -2,7 +2,7 @@ import SingleMovie from './SingleMovie.jsx';
 import React from 'react';
 const{ useState } = React;
 
-const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, searchContent}) => {
+const MovieList = ({collection, changeWatchStatus, filterStatus, searchContent}) => {
   //console.log('collection is ', collection)
 
   if (filterStatus === "Watched") {
@@ -11,7 +11,7 @@ const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, 
         {collection.map((item, index) => {
           if (item.watched && item.title.includes(searchContent)) {
             return (
-              <SingleMovie movie = {item} movieindex={index} changeToToWatch={changeToToWatch} changeToWatched={changeToWatched}/>
+              <SingleMovie movie = {item} movieindex={index} changeWatchStatus={changeWatchStatus}/>
             )
           }
          })}
@@ -23,7 +23,7 @@ const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, 
         {collection.map((item, index) => {
           if (!item.watched && item.title.includes(searchContent)) {
             return (
-            <SingleMovie movie = {item} movieindex={index} changeToToWatch={changeToToWatch} changeToWatched={changeToWatched}/>
+            <SingleMovie movie = {item} movieindex={index} changeWatchStatus={changeWatchStatus}/>
             )
           }
          })}
@@ -35,7 +35,7 @@ const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, 
         {collection.map((item, index) => {
           if (item.title.includes(searchContent)) {
             return (
-              <SingleMovie movie = {item} movieindex={index} changeToToWatch={changeToToWatch} changeToWatched={changeToWatched}/>
+              <SingleMovie movie = {item} movieindex={index} changeWatchStatus={changeWatchStatus}/>
             )
           }
         })}
