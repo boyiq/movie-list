@@ -3,6 +3,7 @@ import React from 'react';
 const{ useState } = React;
 
 const MovieList = ({collection, changeToToWatch, changeToWatched, filterStatus, searchContent}) => {
+  console.log('collection is ', collection)
 
   if (filterStatus === "Watched") {
     return (
